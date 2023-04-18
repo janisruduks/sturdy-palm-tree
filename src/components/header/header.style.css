@@ -1,7 +1,11 @@
 button.auth-button {
-  background-color: #000000;
+  background-color: #1b1b1b;
   color: #fff;
   border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 4px;
   cursor: pointer;
 }
 

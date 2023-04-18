@@ -1,4 +1,4 @@
-import './Header.style.css';
+import './header.style.css';
 
 import { useState, useEffect } from 'react';
 import supabase from '../config/supabaseClient';

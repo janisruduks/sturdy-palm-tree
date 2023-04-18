@@ -1,4 +1,4 @@
-import './showProducts.style.css';
+import './show-products.style.css';
 
 import supabase from '../config/supabaseClient'
 import { useEffect, useState } from 'react';

@@ -1,4 +1,4 @@
-import './addProducts.style.css'
+import './add-products.style.css'
 
 import React, { useState } from "react";
 import supabase from "../config/supabaseClient";
