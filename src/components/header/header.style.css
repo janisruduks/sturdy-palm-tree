@@ -1,0 +1,21 @@
+button.auth-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button.auth-button:hover {
+  opacity: 0.8;
+}
+
+button.auth-button:focus {
+  outline: none;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+}

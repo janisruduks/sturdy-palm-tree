@@ -1,0 +1,12 @@
+.title-menu {
+  font-size: 32px;
+}
+
+.off {
+    text-decoration: none;
+    color: white;
+}
+
+.off:hover {
+    color: #6b6b6b;
+}
