@@ -1,4 +1,4 @@
-import './MainPage.style.css';
+import '../testing/mainPage.style.css';
 
 import { Route, Routes } from "react-router-dom"
 
