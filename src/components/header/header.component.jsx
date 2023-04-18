@@ -15,6 +15,7 @@ const Header = () => {
     async function signInWithGoogle() {
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: 'google',
+            redirectTo: window.location.origin,
         })
         if(error) {
             console.error('Error singning out:', error.message)
