@@ -4,11 +4,8 @@ import { useState, useEffect } from 'react';
 import supabase from '../config/supabaseClient';
 import { Session as smoolSession } from "@supabase/gotrue-js/src/lib/types";
 
-type signProps = {
-    Header: String;
-}
 
-const Header: React.FC<signProps> = () => {
+const Header = () => {
     const [session, setSession] = useState<smoolSession | null>();
 
     useEffect(() => {
