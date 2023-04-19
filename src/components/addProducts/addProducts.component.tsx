@@ -1,28 +1,32 @@
 import './add-products.style.css'
 
-import React, { useState } from "react";
+import { useState } from "react";
 import supabase from "../config/supabaseClient";
 
-const AddProducts = ({ pageTitle }) => {
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const [successMessage, setSuccessMessage] = useState(null);
-    const [errorMessage, setErrorMessage] = useState(null);
+type AddProductsProps = {
+    pageTitle: string;
+}
 
-    const handleProductNameChange = (event) => {
+const AddProducts: React.FC<AddProductsProps> = ({ pageTitle }) => {
+    const [title, setTitle] = useState<string>("");
+    const [price, setPrice] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [successMessage, setSuccessMessage] = useState<string|null>(null);
+    const [errorMessage, setErrorMessage] = useState<string|null>(null);
+
+    const handleProductNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target.value);
     };
 
-    const handlePriceChange = (event) => {
+    const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPrice(event.target.value);
     };
 
-    const handleDescriptionChange = (event) => {
-        setDescription(event.target.value);
+    const handleDescriptionChange = (event: React.SyntheticEvent) => {
+        setDescription((event.target as HTMLTextAreaElement).value);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         const { data, error } = await supabase
             .from("products")
@@ -34,7 +38,7 @@ const AddProducts = ({ pageTitle }) => {
 
     if (error) {
         console.log(error);
-        setErrorMessage( "Please sign in", error.message)
+        setErrorMessage( "Please sign in")
     } else {
         setTitle("");
         setPrice("");

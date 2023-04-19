@@ -3,9 +3,14 @@ import './show-products.style.css';
 import supabase from '../config/supabaseClient'
 import { useEffect, useState } from 'react';
 
-const ShowProducts = ({ pageTitle }) => {
-  const [fetchError, setFetchError] = useState(null)
-  const [products, setProducts] = useState(null)
+type ShowProducts = {
+  pageTitle: string
+}
+
+const ShowProducts: React.FC<ShowProducts> = ({ pageTitle }) => {
+  const [products, setProducts] = useState<any[]>([]);
+  const [fetchError, setFetchError] = useState<null | string>(null);
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,8 +21,8 @@ const ShowProducts = ({ pageTitle }) => {
 
 
       if(error) {
-        setFetchError("Sorry could not fetch products");
-        setProducts(null);
+        setFetchError(null);
+        setProducts([]);
       }
       if(data){
         setProducts(data);

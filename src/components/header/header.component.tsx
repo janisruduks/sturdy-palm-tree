@@ -2,20 +2,22 @@ import './header.style.css';
 
 import { useState, useEffect } from 'react';
 import supabase from '../config/supabaseClient';
+import { Session as smoolSession } from "@supabase/gotrue-js/src/lib/types";
 
-const Header = () => {
-    const [session, setSession] = useState(null);
+type signProps = {
+    Header: String;
+}
 
-     useEffect(() => {
-    setSession(supabase.auth.session);
-    supabase.auth.onAuthStateChange((_event, session) => {
+const Header: React.FC<signProps> = () => {
+    const [session, setSession] = useState<smoolSession | null>();
+
+    useEffect(() => {
         setSession(session);
-    });
+        supabase.auth.onAuthStateChange((_event, session) => setSession(session));
     }, []);
     async function signInWithGoogle() {
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: 'google',
-            redirectTo: window.location.origin,
         })
         if(error) {
             console.error('Error singning out:', error.message)

@@ -1,6 +1,10 @@
 import './home.style.css'
 
-const Home = ({ pageTitle }) => {
+type Home = {
+    pageTitle: string;
+}
+
+const Home: React.FC<Home> = ({ pageTitle }) => {
 
     return (
         <div>
